@@ -47,9 +47,9 @@ const App = () => {
         return;
       } else {
         setMovieList(result.results || []);
-        if (query && result.results.length > 0) {
-          await updateSearchCount(query, result.results[0]);
-        }
+        // if (query && result.results.length > 0) {
+        //   await updateSearchCount(query, result.results[0]);
+        // }
       }
     } catch (error) {
       console.log(`Error fetching movies: ${error}`);
@@ -59,22 +59,22 @@ const App = () => {
     }
   }
 
-  const loadTrendingMovies = async () => {
-    try {
-      const movies = await getTrendingMovies();
-      setTrendingMovies(movies);
-    } catch (error) {
-      console.log(`Error fetching trending movies: ${error}`);
-    }
-  }
+  // const loadTrendingMovies = async () => {
+  //   try {
+  //     const movies = await getTrendingMovies();
+  //     setTrendingMovies(movies);
+  //   } catch (error) {
+  //     console.log(`Error fetching trending movies: ${error}`);
+  //   }
+  // }
 
   useEffect(() => {
     fetchMovies(debouncedSearchTerm);
   }, [debouncedSearchTerm])
 
-  useEffect(() => {
-    loadTrendingMovies();
-  }, [])
+  // useEffect(() => {
+  //   loadTrendingMovies();
+  // }, [])
 
   return (
     <main>
